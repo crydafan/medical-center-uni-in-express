@@ -5,7 +5,7 @@ export class TicketController {
   constructor(private readonly ticketService: TicketService) {}
 
   async createTicket(request: Request, response: Response) {
-    const newTicketNumber = this.ticketService.createTicket();
+    const newTicketNumber = await this.ticketService.createTicket();
     response.send({
       ticketNumber: newTicketNumber,
     });

@@ -1,7 +1,9 @@
-export class TicketService {
-  private ticketNumber = 1;
+import type { TicketRepository } from "../repositories/ticket.repository.ts";
 
-  createTicket() {
-    return this.ticketNumber++;
+export class TicketService {
+  constructor(private readonly ticketRepository: TicketRepository) {}
+
+  async createTicket() {
+    return this.ticketRepository.createTicket();
   }
 }
